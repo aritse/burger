@@ -8,6 +8,9 @@ const conn = mysql.createConnection({
   database: "burgers_db"
 });
 
-conn.connect(err => console.log("node connected to mysql as", conn.threadId));
+conn.connect(err => {
+  if (err) throw err;
+  console.log("node connected to mysql as", conn.threadId);
+});
 
 module.exports = conn;

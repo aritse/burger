@@ -1,25 +1,25 @@
 const conn = require("./connection");
 
 const orm = {
-  selectAll: (table, cols, cb) => {
-    const query = "SELECT ?? FROM ??";
-    conn.query(query, [cols, table], (err, data) => {
+  selectAll: function(table, callback) {
+    const queryString = "SELECT * FROM ??";
+    conn.query(queryString, [table], (err, records) => {
       if (err) throw err;
-      cb(data);
+      callback(records);
     });
   },
-  insertOne: (table, burger, cb) => {
-    const query = "INSERT INTO ?? SET ?";
-    conn.query(query, [table, burger], (err, data) => {
+  insertOne: function(table, object, callback) {
+    const queryString = "INSERT INTO ?? SET ?";
+    conn.query(queryString, [table, object], (err, record) => {
       if (err) throw err;
-      cb(data);
+      callback(record);
     });
   },
-  updateOne: (table, burger, id, cb) => {
-    const query = "UPDATE ?? SET ? WHERE id=?";
-    conn.query(query, [table, burger, id], (err, data) => {
+  updateOne: function(table, object, id, callback) {
+    const queryString = "UPDATE ?? SET ? WHERE id=?";
+    conn.query(queryString, [table, object, id], (err, record) => {
       if (err) throw err;
-      cb(data);
+      callback(record);
     });
   }
 };
