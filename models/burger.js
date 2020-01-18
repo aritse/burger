@@ -1,15 +1,9 @@
 const orm = require("../config/orm");
 
-const Burger = {
-  all: function(callback) {
-    orm.selectAll("burgers", allBurgers => callback(allBurgers));
-  },
-  add: function(burger, callback) {
-    orm.insertOne("burgers", burger, newBurger => callback(newBurger));
-  },
-  update: function(burger, id, callback) {
-    orm.updateOne("burgers", burger, id, updBurger => callback(updBurger));
-  }
+const burger = {
+  selectAll: callback => orm.selectAll("burgers", data => callback(data)),
+  insertOne: (newBurger, callback) => orm.insertOne("burgers", newBurger, data => callback(data)),
+  updateOne: (updBurger, id, callback) => orm.updateOne("burgers", updBurger, id, data => callback(data))
 };
 
-module.exports = Burger;
+module.exports = burger;

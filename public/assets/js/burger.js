@@ -1,13 +1,24 @@
 $(function() {
-  $(".devour-button").on("click", function(event) {
+  $(".devour-btn").click(function() {
     const id = $(this).data("id");
-    $.ajax({
+    $.ajax("/api/burgers/" + id, {
       method: "PUT",
-      url: "/api/burgers/" + id,
-      data: ///////////////////////// needs to pass the burger name to the PUT requests
-    }).then(() => {
-      console.log("devoured burger id:", id);
-      location.reload();
-    });
+      data: { devoured: 1 }
+    })
+      .then(() => location.reload())
+      .catch(err => console.log(err));
+  });
+
+  $("#add-form").submit(function(event) {
+    event.preventDefault();
+    const burgerName = { burger_name: $("#burger-name").val() };
+    console.log("burgerName", burgerName);
+
+    $.ajax("/api/burgers/", {
+      method: "POST",
+      data: burgerName
+    })
+      .then(() => location.reload())
+      .catch(err => console.log(err));
   });
 });

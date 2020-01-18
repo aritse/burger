@@ -1,10 +1,39 @@
-<ul>
-    {{#each burgers}}
-    <li>
-        <p>
-            {{id}}. {{burger_name}} {{devoured}}
-            <button data-id="{{id}}" class="devour-button">Devour</button>
-        </p>
-    </li>
-    {{/each}}
-</ul>
+<table>
+    <tr>
+        <th>Burgers</th>
+        <th>Devoured</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="not-devoured">
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <li>
+                        {{burger_name}}
+                        <button class="devour-btn" data-id="{{id}}">Devour</button>
+                    </li>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </td>
+        <td>
+            <div id="devoured">
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <li>{{burger_name}}</li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<form id="add-form" action="">
+    <input id="burger-name" type="text">
+    <button>Add</button>
+</form>
