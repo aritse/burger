@@ -15,4 +15,4 @@ app.set("view engine", "handlebars");
 
 app.use(routes);
 
-app.listen(PORT, () => console.log("express listening on http://localhost:" + PORT));
+app.listen(PORT, () => console.log("express listening on port", PORT));
