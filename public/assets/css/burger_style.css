@@ -10,3 +10,25 @@ ul {
 table {
   margin: auto;
 }
+
+th,
+td {
+  width: 50%;
+}
+
+img {
+  margin: 50px;
+}
+
+body > table > tbody > tr:nth-child(2) {
+  text-align: left;
+}
+
+#not-devoured {
+  position: relative;
+}
+
+.devour-btn {
+  position: absolute;
+  right: 0;
+}

@@ -1,7 +1,11 @@
 <table>
     <tr>
-        <th>Burgers</th>
-        <th>Devoured</th>
+        <th>
+            <h2>Burgers</h2>
+        </th>
+        <th>
+            <h2>Devoured</h2>
+        </th>
     </tr>
     <tr>
         <td>
@@ -10,8 +14,10 @@
                     {{#each burgers}}
                     {{#unless devoured}}
                     <li>
-                        {{burger_name}}
-                        <button class="devour-btn" data-id="{{id}}">Devour</button>
+                        <p>
+                            {{burger_name}}
+                            <button class="devour-btn" data-id="{{id}}">Devour</button>
+                        </p>
                     </li>
                     {{/unless}}
                     {{/each}}
@@ -23,7 +29,11 @@
                 <ul>
                     {{#each burgers}}
                     {{#if devoured}}
-                    <li>{{burger_name}}</li>
+                    <li>
+                        <p>
+                            {{burger_name}}
+                        </p>
+                    </li>
                     {{/if}}
                     {{/each}}
                 </ul>
