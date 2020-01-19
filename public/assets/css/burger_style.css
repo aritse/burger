@@ -27,8 +27,3 @@ body > table > tbody > tr:nth-child(2) {
 #not-devoured {
   position: relative;
 }
-
-.devour-btn {
-  position: absolute;
-  right: 0;
-}
